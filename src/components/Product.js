@@ -1,21 +1,29 @@
 import React from "react";
 import "../assets/Product.css";
+import Rating from "@material-ui/lab/Rating";
 
 function Product({ id, title, price, rating, image }) {
   return (
     <div className="product">
-      <p>{title}</p>
-      <p className="product__price">
-        <small>￥</small>
-        <strong>{price}</strong>
-      </p>
-      <div className="product__rating">
-        {Array(rating)
-          .fill()
-          .map((_) => (
-            <p>★</p>
-          ))}
+      <div className="product__info">
+        <p className="product__title">
+          {title.length > 80 ? title.slice(0, 79) + "..." : title}
+        </p>
+        <p className="product__price">
+          <small>￥</small>
+          <strong>{price}</strong>
+        </p>
+        <div className="product__rating">
+          <Rating
+            name="half-rating-read"
+            defaultValue={2.5}
+            value={rating}
+            precision={0.5}
+            readOnly
+          />
+        </div>
       </div>
+
       <img src={image} alt="" />
       <button>加入购物车</button>
     </div>
