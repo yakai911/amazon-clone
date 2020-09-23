@@ -21,6 +21,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_BASKET":
       return { ...state, basket: [...state.basket, action.item] };
+
     case "REMOVE_FROM_BASKET":
       let newBasket = [...state.basket];
       const index = state.basket.findIndex(
@@ -33,6 +34,9 @@ const reducer = (state, action) => {
         console.warn(`无法移除Id为${index}的商品`);
       }
       return { ...state, basket: newBasket };
+
+    case "SET_USER":
+      return { ...state, user: action.user };
 
     default:
       return state;

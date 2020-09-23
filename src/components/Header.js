@@ -4,9 +4,15 @@ import "../assets/Header.css";
 import { Link } from "react-router-dom";
 import { Search } from "@material-ui/icons";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { auth } from "../firebase";
 
 function Header() {
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+  const handleAuthentication = (e) => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <nav className="header">
@@ -22,10 +28,16 @@ function Header() {
         <Search className="header__searchIcon" />
       </div>
       <div className="header__nav">
-        <Link to="/login" className="header__link">
-          <div className="header__option">
-            <span className="header__optionLineOne">你好，登录</span>
-            <span className="header__optionLineTwo">我的账户</span>
+        <Link to={!user && "/login"} className="header__link">
+          <div className="header__option" onClick={handleAuthentication}>
+            <span className="header__optionLineOne">
+              {user ? `你好,${user?.displayName}` : "你好，登录"}
+            </span>
+            {user ? (
+              <span className="header__optionLineTwo">退出登录</span>
+            ) : (
+              <span className="header__optionLineTwo">请先登录</span>
+            )}
           </div>
         </Link>
         <Link className="header__link">
