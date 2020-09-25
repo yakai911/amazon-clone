@@ -1,16 +1,5 @@
 export const initialState = {
-  basket: [
-    {
-      id: "13122",
-      title:
-        "Yamaha F310 - Full Size Steel String Acoustic Guitar - Traditional Western Body - Natural",
-      price: 1154.6,
-      rating: 5,
-      image:
-        "https://images-na.ssl-images-amazon.com/images/I/51INShoKdNL._AC_SX569_.jpg",
-      count: 1,
-    },
-  ],
+  basket: [],
   user: null,
 };
 
@@ -36,6 +25,9 @@ const reducer = (state, action) => {
         console.warn(`无法移除Id为${index}的商品`);
       }
       return { ...state, basket: newBasket };
+
+    case "EMPTY_BASKET":
+      return { ...state, basket: [] };
 
     case "INCREMENT":
       let incBasket = [...state.basket];

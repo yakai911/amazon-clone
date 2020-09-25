@@ -7,6 +7,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import { getTotalCount, getBasketTotal } from "../reducer";
 import CurrencyFormat from "react-currency-format";
 import { useElements, CardElement, useStripe } from "@stripe/react-stripe-js";
+import { db } from "../firebase";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -24,15 +25,18 @@ function Payment() {
 
     const getClientSecret = async () => {
       const response = await axios({
-        methods: "post",
+        method: "post",
         //stripe需要你使用货币的最小计量单位表示总金额,乘以100
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       });
+
       setClientSecret(response.data.clientSecret);
     };
 
     getClientSecret();
   }, [basket]);
+
+  console.log("THE SECRET IS", clientSecret);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -50,9 +54,15 @@ function Payment() {
       .then(({ paymentIntent }) => {
         //paymentIntent = payment confirmation
 
+        db.collection("users");
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
 
         history.replace("./orders");
       });
@@ -89,6 +99,7 @@ function Payment() {
           <div className="payment__items">
             {basket.map((item) => (
               <CheckoutProduct
+                key={item.id}
                 id={item.id}
                 title={item.title}
                 image={item.image}
@@ -105,7 +116,7 @@ function Payment() {
           </div>
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
-              <CardElement onchang={handleChange} />
+              <CardElement onChange={handleChange} />
               <div className="pryment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (
@@ -120,7 +131,7 @@ function Payment() {
                   value={getBasketTotal(basket)}
                   displayType={"text"}
                   thousandSeparator={true}
-                  prefix={"￥"}
+                  prefix={"$"}
                 />
                 <button disabled={processing || disabled || succeeded}>
                   <span>{processing ? <p>正在处理</p> : "付款购买"}</span>

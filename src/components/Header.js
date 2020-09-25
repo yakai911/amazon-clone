@@ -42,7 +42,7 @@ function Header() {
             )}
           </div>
         </Link>
-        <Link className="header__link">
+        <Link to="/orders" className="header__link">
           <div className="header__option">
             <span className="header__optionLineOne">退货</span>
             <span className="header__optionLineTwo">我的订单</span>

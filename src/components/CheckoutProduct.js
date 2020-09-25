@@ -20,7 +20,6 @@ function CheckoutProduct({ id, title, price, image, rating, count }) {
 
   return (
     <div className="checkoutProduct">
-      <input type="checkbox" className="checkoutProduct__checkbox" />
       <img src={image} className="checkoutProduct__image" />
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{title}</p>

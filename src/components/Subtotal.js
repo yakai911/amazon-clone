@@ -25,7 +25,7 @@ function Subtotal() {
         value={getBasketTotal(basket)}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"￥"}
+        prefix={"$"}
       />
       <button onClick={(e) => history.push("/payment")}>进入结算中心</button>
     </div>
