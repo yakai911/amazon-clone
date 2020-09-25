@@ -1,5 +1,6 @@
 import React from "react";
 import { useStateValue } from "../StateProvider";
+import { getTotalCount } from "../reducer";
 import "../assets/Header.css";
 import { Link } from "react-router-dom";
 import { Search } from "@material-ui/icons";
@@ -8,6 +9,7 @@ import { auth } from "../firebase";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const totalCount = getTotalCount(basket);
   const handleAuthentication = (e) => {
     if (user) {
       auth.signOut();
@@ -54,7 +56,7 @@ function Header() {
         </Link>
         <Link to="/checkout" className="header__link">
           <div className="header__optionBasket">
-            <span className="header__cartCount">{basket?.length}</span>
+            <span className="header__cartCount">{totalCount}</span>
             <span className="header__optionLineTwo">
               <ShoppingCartOutlinedIcon className="header__cartIcon" />
               购物车

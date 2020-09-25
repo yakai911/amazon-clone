@@ -3,7 +3,7 @@ import "../assets/Product.css";
 import Rating from "@material-ui/lab/Rating";
 import { useStateValue } from "../StateProvider";
 
-function Product({ id, title, price, rating, image }) {
+function Product({ id, title, price, rating, image, count }) {
   const [{ basket }, dispatch] = useStateValue();
   const addToBasket = () => {
     dispatch({
@@ -14,6 +14,7 @@ function Product({ id, title, price, rating, image }) {
         image,
         price,
         rating,
+        count,
       },
     });
   };

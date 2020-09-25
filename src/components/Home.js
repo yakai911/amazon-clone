@@ -19,6 +19,7 @@ function Home() {
           image={
             "https://images-na.ssl-images-amazon.com/images/I/51INShoKdNL._AC_SX569_.jpg"
           }
+          count={1}
         />
         <Product
           id="131224"
@@ -28,6 +29,7 @@ function Home() {
           image={
             "https://images-na.ssl-images-amazon.com/images/I/51-tgqKzYgL._AC_.jpg"
           }
+          count={1}
         />
       </div>
       <div className="home__row">
@@ -39,6 +41,7 @@ function Home() {
           image={
             "https://images-na.ssl-images-amazon.com/images/I/61C6NDbaYIL._AC_SX569_.jpg"
           }
+          count={1}
         />
         <Product
           id="14"
@@ -48,6 +51,7 @@ function Home() {
           image={
             "https://images-na.ssl-images-amazon.com/images/I/414L68aDsgL._AC_SY355_.jpg"
           }
+          count={1}
         />
         <Product
           id="13224"
@@ -57,6 +61,7 @@ function Home() {
           image={
             "https://images-na.ssl-images-amazon.com/images/I/41w4i8xUweL._AC_.jpg"
           }
+          count={1}
         />
       </div>
     </div>

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Rating from "@material-ui/lab/Rating";
 import "../assets/CheckoutProduct.css";
 import { useStateValue } from "../StateProvider";
 
-function CheckoutProduct({ id, title, price, image, rating }) {
-  const [{ basket, count }, dispatch] = useStateValue();
+function CheckoutProduct({ id, title, price, image, rating, count }) {
+  const [{ basket }, dispatch] = useStateValue();
+
   const removeFromBasket = () => {
     dispatch({ type: "REMOVE_FROM_BASKET", id: id });
+  };
+  const increment = () => {
+    dispatch({ type: "INCREMENT", id: id });
+  };
+  const decrement = () => {
+    dispatch({ type: "DECREMENT", id: id });
   };
 
   console.log(id);
@@ -31,9 +38,9 @@ function CheckoutProduct({ id, title, price, image, rating }) {
           />
         </div>
         <div className="checkoutProduct__count">
-          <button>+</button>
+          <button onClick={increment}>+</button>
           <p>{count}</p>
-          <button>-</button>
+          <button onClick={decrement}>-</button>
         </div>
 
         <button onClick={removeFromBasket}>从购物车移除</button>

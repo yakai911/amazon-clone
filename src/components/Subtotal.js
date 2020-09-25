@@ -1,21 +1,23 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../StateProvider";
-import { getBasketTotal } from "../reducer";
+import { getBasketTotal, getTotalCount } from "../reducer";
 import "../assets/Subtotal.css";
+import { useHistory } from "react-router-dom";
 
 function Subtotal() {
-  const [{ basket, count }, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
+  const totalCount = getTotalCount(basket);
+  const history = useHistory();
 
   return (
     <div className="subtotal">
-      <p>未选择任何商品</p>
       <CurrencyFormat
         renderText={(value) => (
           <>
             <p>
-              小计({count}件商品):
-              <strong>￥{basket.map((item) => item.price)}</strong>
+              小计({totalCount}件商品):
+              <strong>{value}</strong>
             </p>
           </>
         )}
@@ -25,7 +27,7 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={"￥"}
       />
-      <button>进入结算中心</button>
+      <button onClick={(e) => history.push("/payment")}>进入结算中心</button>
     </div>
   );
 }
