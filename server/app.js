@@ -6,7 +6,7 @@ const stripe = require("stripe")(
 );
 
 //API
-
+console.log(`${process.env.KEY}`);
 //-App config
 const app = express();
 
@@ -39,4 +39,5 @@ app.post("/api/payments/create", async (req, res) => {
 
 //-listen
 const port = process.env.PORT || 5000;
+
 app.listen(port, () => console.log(`服务器在端口${port}运行`));
