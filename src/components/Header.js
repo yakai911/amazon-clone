@@ -8,7 +8,7 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { auth } from "../firebase";
 
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
   const totalCount = getTotalCount(basket);
   const handleAuthentication = (e) => {
     if (user) {
