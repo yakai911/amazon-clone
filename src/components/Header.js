@@ -25,7 +25,7 @@ function Header() {
           className="header__logo"
         />
       </Link>
-      <div className="header__search">
+      <div className="header__search hidden">
         <input type="text" className="header__searchInput" />
         <Search className="header__searchIcon" />
       </div>
@@ -48,8 +48,8 @@ function Header() {
             <span className="header__optionLineTwo">我的订单</span>
           </div>
         </Link>
-        <Link to="/" className="header__link">
-          <div className="header__option">
+        <Link to="/" className="header__link hidden">
+          <div className="header__option ">
             <span className="header__optionLineOne">免费试享</span>
             <span className="header__optionLineTwo">Prime</span>
           </div>
@@ -59,7 +59,7 @@ function Header() {
             <span className="header__cartCount">{totalCount}</span>
             <span className="header__optionLineTwo">
               <ShoppingCartOutlinedIcon className="header__cartIcon" />
-              购物车
+              <strong className="hidden">购物车</strong>
             </span>
           </div>
         </Link>

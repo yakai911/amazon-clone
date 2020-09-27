@@ -21,6 +21,7 @@ function Product({ id, title, price, rating, image, count }) {
 
   return (
     <div className="product">
+      <img src={image} alt="" />
       <div className="product__info">
         <p className="product__title">
           {title.length > 80 ? title.slice(0, 79) + "..." : title}
@@ -40,8 +41,9 @@ function Product({ id, title, price, rating, image, count }) {
         </div>
       </div>
 
-      <img src={image} alt="" />
-      <button onClick={addToBasket}>加入购物车</button>
+      <button onClick={addToBasket} className="a-button">
+        加入购物车
+      </button>
     </div>
   );
 }

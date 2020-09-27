@@ -101,3 +101,35 @@
 .header__Link:hover {
   border: 5px solid white !important;
 }
+
+@media screen and (max-width: 900px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hidden,
+  .header__optionLineOne {
+    display: none;
+  }
+
+  .header__nav {
+    justify-content: flex-end;
+  }
+
+  .header__option {
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .header__optionBasket {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .header__optionLineTwo {
+    padding-bottom: 0;
+    font-size: 12px;
+  }
+}

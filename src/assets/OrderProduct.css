@@ -32,10 +32,12 @@
   margin: 10px 6px;
 }
 
-.orderProduct__info > button {
-  background: #f0c14b;
-  border: 1px solid;
-  margin-top: 10px;
-  border-color: #a88734 #9c7e31 #846a29;
-  clear: black;
+@media screen and (max-width: 900px) {
+  .orderProduct__title {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .orderProduct__rating {
+    display: none;
+  }
 }

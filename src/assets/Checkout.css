@@ -18,3 +18,15 @@
   font-size: 13px;
   color: #007185;
 }
+
+@media screen and (max-width: 900px) {
+  .checkout {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .checkout__header {
+    padding: 10px;
+    margin: 0;
+  }
+}

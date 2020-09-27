@@ -47,3 +47,16 @@
   border-color: #a88734 #9c7e31 #846a29;
   clear: black;
 }
+
+@media screen and (max-width: 900px) {
+  .checkoutProduct__image {
+    object-fit: contain;
+    width: 150px;
+    height: 150px;
+  }
+  .checkoutProduct__title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #007185;
+  }
+}

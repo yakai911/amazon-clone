@@ -10,9 +10,36 @@
   position: absolute;
   top: 40px;
   right: 20px;
+  color: #a0a0a0;
 }
 
 .order__total {
-  font-size: 500;
+  font-weight: 500;
   text-align: right;
+}
+
+@media screen and (max-width: 900px) {
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+  .order {
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .order__id {
+    position: absolute;
+    top: 0px;
+    margin-left: 80px;
+  }
+
+  .order__total {
+    font-weight: 700;
+    text-align: right;
+    font-size: 15px;
+  }
 }

@@ -5,7 +5,7 @@ import "../assets/OrderProduct.css";
 function OrderProduct({ title, price, image, rating, count }) {
   return (
     <div className="orderProduct">
-      <img src={image} className="orderProduct__image" />
+      <img src={image} alt="product" className="orderProduct__image" />
       <div className="orderProduct__info">
         <p className="orderProduct__title">{title}</p>
         <p className="orderProduct__price">

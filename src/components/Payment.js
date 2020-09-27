@@ -95,9 +95,9 @@ function Payment() {
             <h3>邮寄地址</h3>
           </div>
           <div className="payment__address">
-            <p>{user?.email}</p>
-            <p>123 react Address</p>
-            <p>Los Angeles,CA</p>
+            <p>账户：{user?.email}</p>
+            <p>具体地址：123 react Address</p>
+            <p>所在城市：Los Angeles,CA</p>
           </div>
         </div>
         <div className="payment__section">
